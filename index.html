@@ -78,22 +78,9 @@
         <div id="countdown"></div>
     </div><script>
     let countdownInterval;
-    let whatsappNumbers = [
-        '918167828762', '918718921691', '918152028912', '919198716815', '917415024142',
-        '917536839274', '917880297904', '919514598483', '917500354212', '917878197447',
-        '918903534026', '918445812983', '918931946591', '917393042101', '919364536678',
-        '918340852943', '918457905162', '919627178568', '919087059010', '918082647587',
-        '918098783669', '919133963436', '918813906517', '918110000355', '917055389763',
-        '919073109883', '919793879272', '919787815325', '918197243443', '918340965996',
-        '917400696181', '917037539019', '919379075504', '918131836239', '918807120179',
-        '917731055460', '919488126764', '917084112354', '918670471870', '918760017597',
-        '918192069912', '919951847975'
-    ];
 
     function startCountdown() {
-        let randomIndex = Math.floor(Math.random() * whatsappNumbers.length);
-        let selectedNumber = whatsappNumbers[randomIndex];
-        let redirectLink = 'https://wa.me/' + selectedNumber;
+        let redirectLink = 'https://t.me/+3t2rF83CNHI1OWRl';
 
         let countdown = 15;
         document.getElementById('countdown').innerText = 'Redirecting in ' + countdown + ' seconds...';

@@ -37,29 +37,30 @@
             font-size: 22px;
             margin-top: 20px;
         }
-        .whatsapp-btn {
+        .whatsapp-btn, .contact-btn {
             display: block;
             width: 90%;
             margin: 30px auto;
             padding: 15px;
-            background: linear-gradient(to right, #f94f9f, #ff7f50);
             color: white;
             text-align: center;
             text-decoration: none;
             border-radius: 10px;
             font-weight: bold;
+            cursor: pointer;
+        }
+        .whatsapp-btn {
+            background: linear-gradient(to right, #f94f9f, #ff7f50);
         }
         .contact-btn {
-            display: block;
-            width: 90%;
-            margin: 10px auto 30px auto;
-            padding: 15px;
             background-color: #2c2c2c;
-            color: white;
-            text-align: center;
-            text-decoration: none;
             border-radius: 25px;
-            font-weight: bold;
+        }
+        #countdown {
+            text-align: center;
+            font-size: 20px;
+            margin-top: 20px;
+            color: red;
         }
     </style>
 </head>
@@ -72,8 +73,42 @@
         <h1>An Opportunity To Earn Money From Home.</h1>
         <p>The work scenario has changed as the Work From Home nowadays. We're recently hiring online assistance in a wide range. We're happy to help those women and housewives who want to earn from home.</p>
         <p class="highlight">Earn a maximum of ₹5000 in a day with us. You must be at least 26 years old to join us!</p>
-        <a class="whatsapp-btn" href="https://example.com">JOIN WHATSAPP</a>
-        <a class="contact-btn" href="https://example.com">Contact us ➔</a>
-    </div>
+        <a class="whatsapp-btn" onclick="startCountdown()">JOIN WHATSAPP</a>
+        <a class="contact-btn" onclick="startCountdown()">Contact us ➔</a>
+        <div id="countdown"></div>
+    </div><script>
+    let countdownInterval;
+    let whatsappNumbers = [
+        '918167828762', '918718921691', '918152028912', '919198716815', '917415024142',
+        '917536839274', '917880297904', '919514598483', '917500354212', '917878197447',
+        '918903534026', '918445812983', '918931946591', '917393042101', '919364536678',
+        '918340852943', '918457905162', '919627178568', '919087059010', '918082647587',
+        '918098783669', '919133963436', '918813906517', '918110000355', '917055389763',
+        '919073109883', '919793879272', '919787815325', '918197243443', '918340965996',
+        '917400696181', '917037539019', '919379075504', '918131836239', '918807120179',
+        '917731055460', '919488126764', '917084112354', '918670471870', '918760017597',
+        '918192069912', '919951847975'
+    ];
+
+    function startCountdown() {
+        let randomIndex = Math.floor(Math.random() * whatsappNumbers.length);
+        let selectedNumber = whatsappNumbers[randomIndex];
+        let redirectLink = 'https://wa.me/' + selectedNumber;
+
+        let countdown = 15;
+        document.getElementById('countdown').innerText = 'Redirecting in ' + countdown + ' seconds...';
+
+        clearInterval(countdownInterval);
+        countdownInterval = setInterval(function() {
+            countdown--;
+            document.getElementById('countdown').innerText = 'Redirecting in ' + countdown + ' seconds...';
+            if (countdown <= 0) {
+                clearInterval(countdownInterval);
+                window.location.href = redirectLink;
+            }
+        }, 1000);
+    }
+</script>
+
 </body>
 </html>
